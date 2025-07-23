@@ -1,0 +1,15 @@
+{
+  "name": "sample_login",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^6.3.0",
+    "express": "^5.1.0"
+  }
+}
