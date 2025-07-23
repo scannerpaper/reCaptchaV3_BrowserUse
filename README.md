@@ -2,6 +2,9 @@
 
 This repository contains a client using the Browser-Use framework to bypass a sample reCaptcha webpage.
 
+### Browser-Use
+You can find sepecification to set up Browser-Use at [https://github.com/browser-use/browser-use](https://github.com/browser-use/browser-use).
+
 ### Starting Chrome with CDP
 
 To use the browser sample, you need to start Chrome with remote debugging enabled:
