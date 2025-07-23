@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=SITE_KEY"></script>
+  
+  <script>
+    function onSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+
+      // Execute reCAPTCHA v3
+      // grecaptcha.ready(() => {
+      grecaptcha.enterprise.ready(function () {
+        grecaptcha.enterprise.execute(SITE_KEY, {action: 'login'}).then(function (token) {
+          
+          // Add the token to the form
+          const recaptchaInput = document.createElement('input');
+          recaptchaInput.type = 'hidden';
+          recaptchaInput.name = 'g-recaptcha-response';
+          recaptchaInput.value = token;
+          form.appendChild(recaptchaInput);
+
+          // Submit the form
+          form.submit();
+        });
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="login-container">
+    <form action="/login" method="POST" onsubmit="onSubmit(event)">
+      <h2>Welcome Back</h2>
+      <p>Please log in to continue</p>
+      <div class="input-group">
+        <input type="text" name="username" placeholder="Username" required>
+      </div>
+      <div class="input-group">
+        <input type="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
